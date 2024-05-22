@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Gym Template">
+    <meta name="keywords" content="Gym, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mars Fitness GYM</title>
+    {% load static %}
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/barfiller.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+</head>
+
+<body >
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    <!-- Offcanvas Menu Section Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <i class="fa fa-close"></i>
+        </div>
+        <div class="canvas-search search-switch">
+            <i class="fa fa-search"></i>
+        </div>
+        <nav class="canvas-menu mobile-menu">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about-us' %}">About Us</a></li>
+                <li><a href="{% url 'class-details' %}">Classes</a></li>
+                <li><a href="{% url 'services' %}">Services</a></li>
+                <li><a href="{% url 'team' %}">Our Team</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Signup</a></li>
+                <li><a href="#">Pages</a>
+                    <ul class="dropdown">
+                        <li><a href="{% url 'about-us' %}">About us</a></li>
+                        <li><a href="{% url 'class-timetable' %}">Classes timetable</a></li>
+                        <li><a href="{% url 'bmi-calculator' %}">Bmi calculate</a></li>
+                        <li><a href="{% url 'team' %}">Our team</a></li>
+                        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                        <li><a href="{% url 'blog' %}">Our blog</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="canvas-social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-youtube-play"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+    </div>
+    <!-- Offcanvas Menu Section End -->
+
+    <!-- Header Section Begin -->
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="{% url 'index' %}">
+                            <img src="{% static 'img/logo.png' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="nav-menu">
+                        <ul>
+                            <li {% if request.path == '/' %} class="active"{% endif %}><a href="{% url 'index' %}">Home</a></li>
+
+                            <li {% if request.path == '/about-us/' %} class="active" {% endif %}><a href="{% url 'about-us' %}">About Us</a></li>
+                            <li {% if request.path == '/class-details/' %} class="active" {% endif %}><a href="{% url 'class-details' %}">Classes</a></li>
+                                    
+                            <li {% if request.path == '/services/' %} class="active" {% endif %}><a
+                                    href="{% url 'services' %}">Services</a></li>
+                            <li {% if request.path == '/team/' %} class="active" {% endif %}><a
+                                    href="{% url 'team' %}">Our Team</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="{% url 'about-us' %}">About us</a></li>
+                                    <li><a href="{% url 'class-timetable' %}">Classes timetable</a></li>
+                                    <li><a href="{% url 'bmi-calculator' %}">Bmi calculate</a></li>
+                                    <li><a href="{% url 'team' %}">Our team</a></li>
+                                    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                                    <li><a href="{% url 'blog' %}">Our blog</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="top-option">
+                        <div class="to-search search-switch">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <div class="to-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas-open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+    <div class="wrapper">
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <h2>Login</h2>
+            <div class="input-box">
+                <input type="email" id="email" name="email" placeholder="Email" required onchange="validateEmail()">
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <i class='bx bxs-lock-alt toggle-password' onclick="togglePasswordVisibility()"></i>
+            </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot password</a>
+            </div>
+            <button type="sumbit" class="btn">Login</button>
+
+            <div class="register-link">
+                <p>Don't have an account?<a href="{% url 'signup' %}">  Register</a></p>
+                {% for message in messages%}
+                    <p>{{message}}</p>
+                {% endfor %}
+            </div>
+        </form>
+    </div>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            var toggleIcon = document.querySelector(".toggle-password");
+        
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleIcon.classList.remove("bxs-lock-alt");
+                toggleIcon.classList.add("bxs-lock-open-alt");
+            } else {
+                passwordField.type = "password";
+                toggleIcon.classList.remove("bxs-lock-open-alt");
+                toggleIcon.classList.add("bxs-lock-alt");
+            }
+        }
+        function validateEmail() {
+            var emailInput = document.getElementById("email");
+            var email = emailInput.value.trim();
+            if (email === "" || email.indexOf('@') === -1) {
+                emailInput.setCustomValidity("Please enter a valid email address.");
+            } else {
+                emailInput.setCustomValidity("");
+            }
+        }
+        
+    </script>
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/jquery.barfiller.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

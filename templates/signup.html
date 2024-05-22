@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Breadcrumb Section Begin -->
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg" data-setbg="{% static 'img/login_a.jpg' %}">
+    <div class="wrapper">
+        <div class="row">
+            <div class="chart-calculate-form">
+                <form id="signupForm" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="text" id="first_name" name="first_name" placeholder="First Name" required onchange="validateFirstName()">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" id="last_name" name="last_name" placeholder="Last Name" required onchange="validateLastName()">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="email" id="email" name="email" placeholder="Email" required onchange="validateEmail()">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" id="age" name="age" placeholder="Age" required onchange="validateAge()">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" id="height" name="height" placeholder="Height" required onchange="validateHeight()">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" id="weight" name="weight" placeholder="Weight" required onchange="validateWeight()">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="password" id="password" name="password" placeholder="Password" required onchange="validatePassword()">
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" id="cnfpassword" name="cnfpassword" placeholder="Confirm Password" required onchange="validateConfirmPassword()">
+                        </div>
+                        <div class="col-sm-6">
+                            <select id="sex" name="sex" required onchange="validateSex()">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-lg-12">
+                            <br>
+                            <button type="submit">Register</button>
+                            {% for message in messages%}
+                            <p>{{message}}</p>
+                            {% endfor %}
+                        </div>
+                    </div>  
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Validation functions
+    function validateFirstName() {
+        var firstNameInput = document.getElementById("first_name");
+        if (firstNameInput.value.trim() === "") {
+            firstNameInput.setCustomValidity("Please enter your first name.");
+        } else {
+            firstNameInput.setCustomValidity("");
+        }
+    }
+
+    function validateLastName() {
+        var lastNameInput = document.getElementById("last_name");
+        if (lastNameInput.value.trim() === "") {
+            lastNameInput.setCustomValidity("Please enter your last name.");
+        } else {
+            lastNameInput.setCustomValidity("");
+        }
+    }
+
+    function validateEmail() {
+        var emailInput = document.getElementById("email");
+        var email = emailInput.value.trim();
+        if (email === "" || email.indexOf('@') === -1) {
+            emailInput.setCustomValidity("Please enter a valid email address.");
+        } else {
+            emailInput.setCustomValidity("");
+        }
+    }
+
+    function validateAge() {
+        var ageInput = document.getElementById("age");
+        var age = ageInput.value.trim();
+        if (age === "" || !Number.isInteger(parseInt(age))) {
+            ageInput.setCustomValidity("Please enter a valid age.");
+        } else {
+            ageInput.setCustomValidity("");
+        }
+    }
+
+    function validateHeight() {
+        var heightInput = document.getElementById("height");
+        if (heightInput.value.trim() === "") {
+            heightInput.setCustomValidity("Please enter your height.");
+        } else {
+            heightInput.setCustomValidity("");
+        }
+    }
+
+    function validateWeight() {
+        var weightInput = document.getElementById("weight");
+        if (weightInput.value.trim() === "") {
+            weightInput.setCustomValidity("Please enter your weight.");
+        } else {
+            weightInput.setCustomValidity("");
+        }
+    }
+
+    function validatePassword() {
+        var passwordInput = document.getElementById("password");
+        if (passwordInput.value.trim() === "") {
+            passwordInput.setCustomValidity("Please enter a password.");
+        } else {
+            passwordInput.setCustomValidity("");
+        }
+    }
+
+    function validateConfirmPassword() {
+        var confirmPasswordInput = document.getElementById("cnfpassword");
+        var passwordInput = document.getElementById("password");
+        if (confirmPasswordInput.value.trim() === "" || confirmPasswordInput.value !== passwordInput.value) {
+            confirmPasswordInput.setCustomValidity("Passwords do not match.");
+        } else {
+            confirmPasswordInput.setCustomValidity("");
+        }
+    }
+
+    function validateSex() {
+        var sexInput = document.getElementById("sex");
+        if (sexInput.value.trim() === "") {
+            sexInput.setCustomValidity("Please select your gender.");
+        } else {
+            sexInput.setCustomValidity("");
+        }
+    }
+</script>
+
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
